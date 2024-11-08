@@ -367,6 +367,13 @@ footer .credit a {
   .navbar .navbar-nav a:hover::after {
     transform: scaleX(0.25);
   }
+  .about {
+    margin-bottom: 0;
+  }
+
+  .menu {
+    padding-top: 0;
+  }
 
   .about .row {
     flex-wrap: wrap;
