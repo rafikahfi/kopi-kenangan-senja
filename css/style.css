@@ -368,14 +368,6 @@ footer .credit a {
     transform: scaleX(0.25);
   }
 
-  .about {
-    margin-bottom: 0;
-  }
-
-  .menu {
-    padding-top: 0;
-  }
-
   .about .row {
     flex-wrap: wrap;
   }
@@ -422,5 +414,13 @@ footer .credit a {
 @media (max-width: 450px) {
   html {
     font-size: 55%;
+  }
+
+  .about {
+    margin-bottom: 0;
+  }
+
+  .menu {
+    padding-top: 0;
   }
 }
