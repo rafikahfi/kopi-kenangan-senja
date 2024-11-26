@@ -20,12 +20,13 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <!-- App -->
-    <script src="src/app.js"></script>
+    <script src="src/app.js" async></script>
+    <!-- Inspired by Sandhika Galih -->
   </head>
   <body>
     <!-- Navbar start -->
     <nav class="navbar" x-data>
-      <a href="#" class="navbar-logo">kenangan<span>senja.</span></a>
+      <a href="#" class="navbar-logo">SIZA<span>coffee.</span></a>
 
       <div class="navbar-nav">
         <a href="#home">Home</a>
@@ -72,7 +73,9 @@
         <h4 x-show="$store.cart.items.length" class="shopping-cart-total">Total : <span x-text="rupiah($store.cart.total)"></span></h4>
 
         <div class="form-container" x-show="$store.cart.items.length">
-          <form action="" id="checkoutForm">
+          <form action="" id="checkout-form">
+            <input type="hidden" name="items" x-model="JSON.stringify($store.cart.items)" />
+            <input type="hidden" name="total" x-model="$store.cart.total" />
             <h5>Customer Detail</h5>
             <label for="name">
               <span>Name</span>
@@ -86,7 +89,7 @@
               <span>Phone</span>
               <input type="number" name="phone" id="phone" autocomplete="off" />
             </label>
-            <button class="checkout-button" id="checkout-button" value="checkhout" type="submit" val>Checkout</button>
+            <button class="checkout-button disabled" id="checkout-button" value="checkhout" type="submit" val>Checkout</button>
           </form>
         </div>
       </div>
@@ -97,9 +100,9 @@
     <!-- Hero Section Start -->
     <section class="hero" id="home">
       <main class="content">
-        <h1>Mari Nikmati Secangkir <span>Kopi</span></h1>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae, sequi?</p>
-        <a href="#" class="cta">Beli Sekarang</a>
+        <h1>Selamat Datang di Siza<span> Coffee</span></h1>
+        <p>Mari nikmati secangkir kopi, rasakan keajaiban setiap cangkir.</p>
+        <a href="#products" class="cta">Beli Sekarang</a>
       </main>
     </section>
     <!-- Hero Section End -->
@@ -113,8 +116,11 @@
         </div>
         <div class="content">
           <h3>Kenapa memilih kopi kami?</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quo numquam quae, non officiis accusantium!</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta iusto debitis voluptate ut voluptatum maiores repellat rerum earum culpa et!</p>
+          <p>Di setiap tetes kopi, kami merangkai kisah. Terinspirasi oleh kehangatan aroma dan keajaiban rasa, kami hadir untuk memberikan pengalaman terbaik kepada setiap pecinta kopi.</p>
+          <p>
+            Kami percaya bahwa kopi lebih dari sekadar minuman; ia adalah seni, budaya, dan penghubung cerita di setiap cangkir. Dengan biji kopi pilihan dari petani terbaik, kami meracik kesempurnaan untuk dinikmati kapan saja dan di mana
+            saja.
+          </p>
         </div>
       </div>
     </section>
@@ -123,37 +129,37 @@
     <!-- Menu Section Start -->
     <section class="menu" id="menu">
       <h2><span>Menu</span> Kami</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe vel, corrupti quis velit aliquid quod!</p>
+      <p>Temukan keajaiban rasa di setiap pilihan menu kami. Dari racikan klasik hingga kreasi spesial, setiap cangkir dirancang untuk memenuhi selera Anda.</p>
       <div class="row">
         <div class="menu-card">
           <img src="img/menu/1.jpg" class="menu-card-image" alt="" />
           <h3 class="menu-card-title">- Espresso -</h3>
-          <p class="menu-card-price">IDR 15K</p>
+          <p class="menu-card-price">IDR 20K</p>
         </div>
         <div class="menu-card">
-          <img src="img/menu/1.jpg" class="menu-card-image" alt="" />
-          <h3 class="menu-card-title">- Espresso -</h3>
-          <p class="menu-card-price">IDR 15K</p>
+          <img src="img/menu/2.jpg" class="menu-card-image" alt="" />
+          <h3 class="menu-card-title">- Americano -</h3>
+          <p class="menu-card-price">IDR 25K</p>
         </div>
         <div class="menu-card">
-          <img src="img/menu/1.jpg" class="menu-card-image" alt="" />
-          <h3 class="menu-card-title">- Espresso -</h3>
-          <p class="menu-card-price">IDR 15K</p>
+          <img src="img/menu/3.jpg" class="menu-card-image" alt="" />
+          <h3 class="menu-card-title">- Cappucino -</h3>
+          <p class="menu-card-price">IDR 29K</p>
         </div>
         <div class="menu-card">
-          <img src="img/menu/1.jpg" class="menu-card-image" alt="" />
-          <h3 class="menu-card-title">- Espresso -</h3>
-          <p class="menu-card-price">IDR 15K</p>
+          <img src="img/menu/4.jpg" class="menu-card-image" alt="" />
+          <h3 class="menu-card-title">- Vanilla Latte -</h3>
+          <p class="menu-card-price">IDR 33K</p>
         </div>
         <div class="menu-card">
-          <img src="img/menu/1.jpg" class="menu-card-image" alt="" />
-          <h3 class="menu-card-title">- Espresso -</h3>
-          <p class="menu-card-price">IDR 15K</p>
+          <img src="img/menu/5.jpg" class="menu-card-image" alt="" />
+          <h3 class="menu-card-title">- Picolo Coffee -</h3>
+          <p class="menu-card-price">IDR 30K</p>
         </div>
         <div class="menu-card">
-          <img src="img/menu/1.jpg" class="menu-card-image" alt="" />
-          <h3 class="menu-card-title">- Espresso -</h3>
-          <p class="menu-card-price">IDR 15K</p>
+          <img src="img/menu/6.jpg" class="menu-card-image" alt="" />
+          <h3 class="menu-card-title">- Cold Brew -</h3>
+          <p class="menu-card-price">IDR 27K</p>
         </div>
       </div>
     </section>
@@ -162,7 +168,7 @@
     <!-- Products Section Start -->
     <section class="products" id="products" x-data="products">
       <h2><span>Produk Unggulan</span> Kami</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit laboriosam placeat voluptatibus sed deserunt repellendus!</p>
+      <p>Diracik dengan biji kopi berkualitas tinggi dan perhatian penuh pada setiap detail, produk unggulan kami adalah bentuk cinta pada seni kopi.</p>
       <div class="row">
         <template x-for="(item, index) in items" x-key="index">
           <div class="product-card">
@@ -211,7 +217,7 @@
     <!-- Contact Section Start -->
     <section class="contact" id="contact">
       <h2><span>Kontak</span> Kami</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, cupiditate.</p>
+      <p>Hubungi kami kapan saja, karena setiap pesan dari Anda adalah inspirasi bagi kami.</p>
 
       <div class="row">
         <iframe
@@ -243,7 +249,7 @@
     <!-- Footer Start -->
     <footer>
       <div class="socials">
-        <a href="#"><i data-feather="instagram"></i></a>
+        <a href="https://www.instagram.com/geisafifazhr/"><i data-feather="instagram"></i></a>
         <a href="#"><i data-feather="twitter"></i></a>
         <a href="#"><i data-feather="facebook"></i></a>
       </div>
@@ -254,34 +260,10 @@
         <a href="#contact">Kontak</a>
       </div>
       <div class="credit">
-        <p>Created by <a href="#">rafikahfi</a>. | &copy; 2024.</p>
+        <p>Created by <a href="#">geisaafifazhr</a>. | &copy; 2024.</p>
       </div>
     </footer>
     <!-- Footer End -->
-
-    <!-- Modal Box Item Start -->
-    <div class="modal" id="item-detail-modal">
-      <div class="modal-container">
-        <a href="#" class="close-icon"><i data-feather="x"></i></a>
-        <div class="modal-content">
-          <img src="img/products/1.jpg" alt="Product 1" />
-          <div class="product-content">
-            <h3>Product 1</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod exercitationem distinctio harum labore dolores provident, numquam perferendis sint voluptates itaque hic nihil similique inventore blanditiis.</p>
-            <div class="product-stars">
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star" class="star-full"></i>
-            </div>
-            <div class="product-price">IDR 30K <span>IDR 50K</span></div>
-            <a href="#"><i data-feather="shopping-cart"></i><span>add to cart</span></a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Modal Box Item End -->
 
     <!-- Feather Icons -->
     <script>

@@ -67,6 +67,49 @@ document.addEventListener("alpine:init", () => {
   });
 });
 
+// Form Validation
+const checkoutButton = document.querySelector(".checkout-button");
+checkoutButton.disabled = true;
+
+const form = document.querySelector("#checkout-form");
+
+form.addEventListener("keyup", function () {
+  for (let i = 0; i < form.elements.length; i++) {
+    if (form.elements[i].value.length !== 0) {
+      checkoutButton.classList.remove("disabled");
+      checkoutButton.classList.add("disabled");
+    } else {
+      return false;
+    }
+  }
+  checkoutButton.disabled = false;
+  checkoutButton.classList.remove("disabled");
+});
+
+// // Form checkout untuk ke WhatsApp
+
+// // Kirim data ketika tombol checkout di klik
+// checkoutButton.addEventListener("click", function (e) {
+//   e.preventDefault();
+//   const formData = new FormData(form);
+//   const data = new URLSearchParams(formData);
+//   const objData = Object.fromEntries(data);
+//   const message = formatMessage(objData);
+//   window.open("http://wa.me/(nomor hp diawali dengan 62)?text=" + encodeURIComponent(message));
+// });
+
+// // format pesan whatsapp
+// const formatMessage = (obj) => {
+//   return `Data Customer
+//   Nama: ${obj.name}
+//   Email: ${obj.email}
+//   No HP: ${obj.phone}
+// Data Pesanan
+//   ${JSON.parse(obj.items).map((item) => `${item.name} (${item.quantity} x ${rupiah(item.total)}) \n`)}
+//   TOTAL: ${rupiah(obj.total)}
+//   Terima Kasih.`;
+// };
+
 // Konversi ke rupiah
 const rupiah = (number) => {
   return new Intl.NumberFormat("id-ID", {
